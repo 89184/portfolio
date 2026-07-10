@@ -1,0 +1,668 @@
+/* ── Reset & Base Styles ── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2563eb;
+  --primary-light: #60a5fa;
+  --primary-dark: #1d4ed8;
+  --accent: #0d9488;
+  --violet: #7c3aed;
+  --bg-start: #f8fbff;
+  --bg-mid: #eef7ff;
+  --bg-end: #f7f3ff;
+  --surface: rgba(255, 255, 255, 0.84);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --text-light: #172033;
+  --text-muted: rgba(51, 65, 85, 0.74);
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(37, 99, 235, 0.14);
+  --shadow-heavy: 0 22px 58px rgba(15, 23, 42, 0.11);
+  --radius-large: 1rem;
+  --radius-medium: 0.5rem;
+  --transition-smooth: 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  --max-width: min(90%, 94vw);
+}
+
+/* ── CLS Fix - Reserve Space ── */
+
+/* Reserve space for all images */
+img, video, iframe {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reserve space for sections */
+.section {
+  min-height: 100vh;
+}
+
+/* Reserve space for cards */
+.project-card {
+  min-height: 320px;
+}
+
+.skill-category {
+  min-height: 180px;
+}
+
+/* Reserve space for summaries */
+.skills-summary {
+  min-height: 80px;
+}
+
+.hero-stats {
+  min-height: 80px;
+}
+
+
+body {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 99, 235, 0.045) 1px, transparent 1px),
+    radial-gradient(circle at 14% 12%, rgba(96, 165, 250, 0.22), transparent 28rem),
+    radial-gradient(circle at 88% 6%, rgba(13, 148, 136, 0.14), transparent 28rem),
+    radial-gradient(circle at 52% 100%, rgba(124, 58, 237, 0.11), transparent 34rem),
+    linear-gradient(135deg, var(--bg-start), var(--bg-mid) 48%, var(--bg-end));
+  background-size: 56px 56px, 56px 56px, auto, auto, auto;
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
+  padding: 0;
+  color: var(--text-light);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: -30%;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(
+      110deg,
+      transparent 0 38px,
+      rgba(37, 99, 235, 0.055) 39px,
+      transparent 41px
+    );
+  animation: page-tech-drift 22s linear infinite;
+  opacity: 0.45;
+}
+
+@keyframes page-tech-drift {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  100% { transform: translate(2%, 1%) rotate(1deg); }
+}
+
+/* ═══════════════════════════════════════ */
+/* PORTFOLIO CONTAINER - GRID LAYOUT */
+/* ═══════════════════════════════════════ */
+
+.portfolio-container {
+  max-width: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2.2rem;
+  padding-bottom: 2.5rem;
+}
+
+/* ═══════════════════════════════════════ */
+/* SECTION BASE - 2D ANIMATIONS */
+/* ═══════════════════════════════════════ */
+
+.section {
+  width: 100%;
+  grid-column: span 6;
+  justify-self: center;
+  max-width: var(--max-width);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 0;
+  margin: 0;
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════ */
+/* HERO SECTION - FULL SCREEN */
+/* ═══════════════════════════════════════ */
+
+.hero-section {
+  grid-column: 1 / -1;
+  max-width: none;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+}
+
+.hero-section .card-3d {
+  min-height: 100vh;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.hero-section .card-3d::before,
+.hero-section .card-3d::after {
+  display: none;
+}
+
+/* ═══════════════════════════════════════ */
+/* SUMMARY SECTION - FULL SCREEN */
+/* ═══════════════════════════════════════ */
+
+.summary-section {
+  grid-column: 1 / -1;
+  max-width: none;
+  min-height: 100vh;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  opacity: 1;
+  transform: none;
+}
+
+.summary-section .card-3d {
+  min-height: 100vh;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.summary-section .card-3d::before,
+.summary-section .card-3d::after {
+  display: none;
+}
+
+/* ═══════════════════════════════════════ */
+/* SKILLS SECTION - FULL SCREEN */
+/* ═══════════════════════════════════════ */
+
+.skills-section {
+  grid-column: 1 / -1 !important;
+  max-width: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.skills-section .card-3d {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100vh;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.skills-section .card-3d::before,
+.skills-section .card-3d::after {
+  display: none !important;
+}
+
+/* ═══════════════════════════════════════ */
+/* ACHIEVEMENTS SECTION - 2 COLUMN */
+/* ═══════════════════════════════════════ */
+
+.achievements-section {
+  grid-column: span 6;
+}
+
+/* ═══════════════════════════════════════ */
+/* PROJECTS SECTION - FULL SCREEN */
+/* ═══════════════════════════════════════ */
+
+.projects-section {
+  grid-column: 1 / -1 !important;
+  width: 100% !important;
+  max-width: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.projects-section .card-3d {
+  width: 100%;
+  max-width: none;
+  min-height: 100vh;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+.projects-section .card-3d::before,
+.projects-section .card-3d::after {
+  display: none;
+}
+
+/* ═══════════════════════════════════════ */
+/* EXPERIENCE SECTION - FULL SCREEN */
+/* ═══════════════════════════════════════ */
+
+.experience-section {
+  grid-column: 1 / -1;
+}
+
+/* ═══════════════════════════════════════ */
+/* CERTIFICATIONS SECTION - 2 COLUMN */
+/* ═══════════════════════════════════════ */
+
+.certifications-section {
+  grid-column: span 6;
+}
+
+/* ═══════════════════════════════════════ */
+/* EDUCATION SECTION - 2 COLUMN */
+/* ═══════════════════════════════════════ */
+
+.education-section {
+  grid-column: span 6;
+}
+
+/* ═══════════════════════════════════════ */
+/* TESTIMONIALS SECTION - 2 COLUMN */
+/* ═══════════════════════════════════════ */
+
+.testimonials-section {
+  grid-column: span 6;
+}
+
+/* ═══════════════════════════════════════ */
+/* CONTACT SECTION - FULL SCREEN */
+/* ═══════════════════════════════════════ */
+
+.contact-section {
+  grid-column: 1 / -1;
+}
+
+/* ═══════════════════════════════════════ */
+/* CARD-3D STYLES - 2D ONLY */
+/* ═══════════════════════════════════════ */
+
+.card-3d {
+  position: relative;
+  padding: 2.5rem 3rem;
+  border-radius: var(--radius-large);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(239, 247, 255, 0.82)),
+    var(--glass-bg);
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 
+    var(--shadow-heavy),
+    0 1px 0 rgba(255, 255, 255, 0.86) inset;
+  width: 100%;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease;
+}
+
+/* ── 2D Hover Effect ── */
+.card-3d:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.15);
+}
+
+/* ── Card Effects ── */
+.skills-section .card-3d::before,
+.achievements-section .card-3d::before,
+.certifications-section .card-3d::before,
+.education-section .card-3d::before,
+.testimonials-section .card-3d::before,
+.experience-section .card-3d::before,
+.contact-section .card-3d::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-large);
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.22), rgba(13, 148, 136, 0.10), rgba(124, 58, 237, 0.10));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.skills-section .card-3d::after,
+.achievements-section .card-3d::after,
+.certifications-section .card-3d::after,
+.education-section .card-3d::after,
+.testimonials-section .card-3d::after,
+.experience-section .card-3d::after,
+.contact-section .card-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-large);
+  background:
+    linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.09), transparent),
+    radial-gradient(circle at 20% 30%, rgba(13, 148, 136, 0.08), transparent 52%);
+  background-size: 220% 100%, auto;
+  opacity: 0.58;
+  pointer-events: none;
+  transition: opacity 0.4s;
+  animation: card-scan 8s ease-in-out infinite;
+}
+
+@keyframes card-scan {
+  0%, 100% { background-position: 0% 0%, 0% 0%; }
+  50% { background-position: 100% 0%, 0% 0%; }
+}
+
+.skills-section .card-3d:hover::after,
+.achievements-section .card-3d:hover::after,
+.certifications-section .card-3d:hover::after,
+.education-section .card-3d:hover::after,
+.testimonials-section .card-3d:hover::after,
+.experience-section .card-3d:hover::after,
+.contact-section .card-3d:hover::after {
+  opacity: 0.8;
+}
+
+.card-3d > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════ */
+/* SECTION LABEL */
+/* ═══════════════════════════════════════ */
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  color: var(--primary-dark);
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+
+/* ═══════════════════════════════════════ */
+/* OTHER SECTION CARDS */
+/* ═══════════════════════════════════════ */
+
+.experience-section .card-3d,
+.contact-section .card-3d {
+  padding: 2.75rem 3rem;
+}
+
+.skills-section .card-3d,
+.achievements-section .card-3d,
+.certifications-section .card-3d,
+.education-section .card-3d,
+.testimonials-section .card-3d {
+  min-height: 100%;
+}
+
+/* ═══════════════════════════════════════ */
+/* COMPONENT STYLES */
+/* ═══════════════════════════════════════ */
+
+.project-item,
+.exp-item,
+.edu-item,
+.cert-item,
+.testimonial-item,
+.achieve-list li,
+.contact-link {
+  background: rgba(248, 251, 255, 0.78);
+  border: 1px solid rgba(37, 99, 235, 0.11);
+  border-radius: var(--radius-medium);
+  box-shadow: 0 10px 28px rgba(15, 23, 42, 0.055);
+}
+
+.project-item,
+.testimonial-item {
+  padding: 1rem 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  color: #172033;
+  margin-bottom: 0.35rem;
+}
+
+.project-desc,
+.project-tech,
+.testimonial-item,
+.achieve-list li,
+.contact-note {
+  color: var(--text-muted);
+}
+
+.project-tech {
+  margin: 0.6rem 0;
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.project-link,
+.contact-link {
+  color: var(--primary-dark);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.project-link {
+  display: inline-flex;
+  margin-top: 0.2rem;
+}
+
+.project-link:hover,
+.contact-link:hover {
+  color: var(--accent);
+  border-color: rgba(13, 148, 136, 0.22);
+  transform: translateY(-2px);
+}
+
+.achieve-list {
+  display: grid;
+  gap: 0.85rem;
+  list-style: none;
+}
+
+.achieve-list li {
+  padding: 0.9rem 1rem;
+}
+
+.cert-grid,
+.contact-links {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.cert-item,
+.edu-item,
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.9rem 1rem;
+}
+
+.edu-item {
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 0.85rem;
+}
+
+.edu-degree,
+.cert-name {
+  color: #172033;
+  font-weight: 700;
+}
+
+.edu-school,
+.edu-year {
+  color: var(--text-muted);
+}
+
+.contact-note {
+  margin-top: 1rem;
+}
+
+/* ═══════════════════════════════════════ */
+/* RESPONSIVE BREAKPOINTS */
+/* ═══════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  .skills-section,
+  .achievements-section,
+  .certifications-section,
+  .education-section,
+  .testimonials-section {
+    grid-column: 1 / -1;
+  }
+  
+  .card-3d {
+    padding: 2rem 1.8rem;
+  }
+  
+  .experience-section .card-3d,
+  .contact-section .card-3d {
+    padding: 2rem 1.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  .card-3d {
+    padding: 1.5rem 1.2rem;
+  }
+  
+  .experience-section .card-3d,
+  .contact-section .card-3d {
+    padding: 1.5rem 1.2rem;
+  }
+  
+  .section-label {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-3d {
+    padding: 1.2rem 0.8rem;
+  }
+  
+  .experience-section .card-3d,
+  .contact-section .card-3d {
+    padding: 1.2rem 0.8rem;
+  }
+}
+
+/* ═══════════════════════════════════════ */
+/* FULL WIDTH CERTIFICATIONS SECTION - OVERRIDE */
+/* ═══════════════════════════════════════ */
+
+.certifications-section {
+  grid-column: 1 / -1 !important;
+  max-width: none !important;
+  width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.certifications-section .card-3d {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100vh;
+  padding: 0 !important;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  box-shadow: none !important;
+  overflow: visible !important;
+}
+
+.certifications-section .card-3d::before,
+.certifications-section .card-3d::after {
+  display: none !important;
+}
+
+
+/* ═══════════════════════════════════════ */
+/* CLS FIXES - Reserve Space for All Elements */
+/* ═══════════════════════════════════════ */
+
+/* ── Reserve space for all images ── */
+img, video, iframe {
+  max-width: 100%;
+  display: block;
+}
+
+/* ── Reserve space for sections ── */
+.section {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* ── Reserve space for cards ── */
+.project-card {
+  min-height: 320px;
+}
+
+.skill-category {
+  min-height: 180px;
+}
+
+/* ── Reserve space for summaries ── */
+.skills-summary {
+  min-height: 80px;
+}
+
+.hero-stats {
+  min-height: 80px;
+}
+
+/* ── Prevent layout shift on load ── */
+.portfolio-container {
+  min-height: 100vh;
+}
+
+/* ── Reserve space for hero content ── */
+.hero-title-group {
+  min-height: 200px;
+}
+
+/* ── Reserve space for project details ── */
+.project-detail-view {
+  min-height: 300px;
+}

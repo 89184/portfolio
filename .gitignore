@@ -1,0 +1,47 @@
+# ── OS files ──
+.DS_Store
+Thumbs.db
+
+# ── Editor files ──
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ── Node modules ──
+node_modules/
+package-lock.json
+yarn.lock
+
+# ── Build files ──
+dist/
+build/
+*.log
+
+# ── Environment files ──
+.env
+.env.local
+.env.*.local
+
+# ── Cache ──
+.cache/
+*.cache
+
+# ── IDE files ──
+*.iml
+*.iws
+*.ipr
+
+# ── System files ──
+*.tmp
+*.temp
+
+# ── Backup files ──
+*.bak
+*.backup
+
+# ── Media files ──
+*.psd
+*.ai
+*.xd
+*.fig
