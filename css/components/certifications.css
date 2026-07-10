@@ -61,9 +61,8 @@
   margin: 0 auto;
 }
 
-/* ═══════════════════════════════════════ */
+
 /* HEADER */
-/* ═══════════════════════════════════════ */
 
 .certifications-header {
   display: flex;
@@ -133,9 +132,9 @@
   background: linear-gradient(90deg, rgba(37, 99, 235, 0.3), transparent);
 }
 
-/* ═══════════════════════════════════════ */
+
 /* CERTIFICATIONS GRID - FULL WIDTH */
-/* ═══════════════════════════════════════ */
+
 
 .certifications-grid-wrapper {
   width: 100%;
@@ -151,9 +150,9 @@
   width: 100%;
 }
 
-/* ═══════════════════════════════════════ */
+
 /* CERTIFICATION CARD */
-/* ═══════════════════════════════════════ */
+
 
 .certification-card {
   background: rgba(255, 255, 255, 0.78);
@@ -216,9 +215,9 @@
   align-self: flex-start;
 }
 
-/* ═══════════════════════════════════════ */
+
 /* ANIMATIONS */
-/* ═══════════════════════════════════════ */
+
 
 .animate-text {
   opacity: 0;
@@ -254,9 +253,8 @@
   50% { transform: skewX(-8deg) translateX(2%); }
 }
 
-/* ═══════════════════════════════════════ */
+
 /* RESPONSIVE BREAKPOINTS */
-/* ═══════════════════════════════════════ */
 
 /* ── Medium Screens (768px - 1024px) ── */
 @media (max-width: 1024px) {

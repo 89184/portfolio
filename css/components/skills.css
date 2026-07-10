@@ -60,9 +60,9 @@
   margin: 0 auto;
 }
 
-/* ═══════════════════════════════════════ */
+
 /* HEADER - LARGER */
-/* ═══════════════════════════════════════ */
+
 
 .skills-header {
   display: flex;
@@ -131,9 +131,9 @@
   background: linear-gradient(90deg, rgba(37, 99, 235, 0.3), transparent);
 }
 
-/* ═══════════════════════════════════════ */
+
 /* SKILLS GRID - LARGER CARDS */
-/* ═══════════════════════════════════════ */
+
 
 .skills-grid-wrapper {
   width: 100%;
@@ -149,9 +149,7 @@
   align-items: stretch;
 }
 
-/* ═══════════════════════════════════════ */
 /* SKILL CATEGORY CARD - LARGER */
-/* ═══════════════════════════════════════ */
 
 .skill-category {
   background: rgba(255, 255, 255, 0.78);
@@ -331,9 +329,9 @@
   color: #1e293b !important;
 }
 
-/* ═══════════════════════════════════════ */
+
 /* SKILLS SUMMARY - LARGER */
-/* ═══════════════════════════════════════ */
+
 
 .skills-summary {
   display: flex;
@@ -389,9 +387,9 @@
   background: rgba(37, 99, 235, 0.12);
 }
 
-/* ═══════════════════════════════════════ */
+
 /* ANIMATIONS */
-/* ═══════════════════════════════════════ */
+
 
 .animate-text {
   opacity: 0;
@@ -428,9 +426,9 @@
   50% { transform: skewX(-8deg) translateX(2%); }
 }
 
-/* ═══════════════════════════════════════ */
+
 /* RESPONSIVE BREAKPOINTS */
-/* ═══════════════════════════════════════ */
+
 
 @media (max-width: 1024px) {
   .skills-grid {

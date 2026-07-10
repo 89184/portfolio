@@ -4,7 +4,7 @@
 export function initHeroParticles() {
   const canvas = document.getElementById('particleCanvas');
   if (!canvas) {
-    console.warn('⚠️ Particle canvas not found');
+    console.warn(' Particle canvas not found');
     return;
   }
 

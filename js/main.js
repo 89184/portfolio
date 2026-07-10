@@ -38,15 +38,15 @@ class PortfolioApp {
   async init() {
     try {
       await this.loader.loadAll(this.sections);
-      console.log('✅ All sections loaded');
+      console.log(' All sections loaded');
       
       await new Promise(resolve => setTimeout(resolve, 100));
       
       this.setupInteractions();
       this.checkReducedMotion();
-      console.log('✅ Portfolio ready! 🚀');
+      console.log('Portfolio ready! 🚀');
     } catch (error) {
-      console.error('❌ Failed to initialize portfolio:', error);
+      console.error('Failed to initialize portfolio:', error);
     }
   }
 
@@ -54,9 +54,9 @@ class PortfolioApp {
     // ── Initialize Scroll Reveal (2D) ──
     try {
       initScrollReveal();
-      console.log('✅ Scroll reveal initialized');
+      console.log(' Scroll reveal initialized');
     } catch (e) {
-      console.warn('⚠️ Scroll reveal init failed:', e);
+      console.warn(' Scroll reveal init failed:', e);
     }
 
     // ── Dispatch ready event ──
