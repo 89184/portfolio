@@ -1,7 +1,7 @@
 # Rousan Ali – AI/ML Engineer Portfolio
 
 [![Website](https://img.shields.io/badge/Website-Live-blue?style=for-the-badge&logo=vercel)]( https://rainbow-monstera-9e7fd4.netlify.app/)
-[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github)](github.com/89184)
+[![GitHub](https://img.shields.io/badge/GitHub-Profile-black?style=for-the-badge&logo=github)](https://github.com/89184)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Profile-blue?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/rousanali)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
